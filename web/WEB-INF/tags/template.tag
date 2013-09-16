@@ -1,5 +1,6 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@tag description="Generic template for Kissalista pages" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@attribute name="pageTitle"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,7 +29,7 @@
             <c:if test="${pageError != null}">
                 <div class="alert alert-danger">${pageError}</div>
             </c:if>
-            <jsp:include page='${contentPage}' />
+            <jsp:doBody/>
         </div>
     </body>
 </html>

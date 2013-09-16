@@ -14,18 +14,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 abstract public class AbstractTsohaServlet extends HttpServlet {
     
-    /** Shows a JSP page with the common page template
-     *
-     * @param page The JSP page to show
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException
-     * @throws IOException
-     */
-    protected void showJSP(String page, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        showJSP(page, "template.jsp", request, response);
-    }
-    
     /** Shows a JSP page with u custom page template
      *
      * @param page The JSP page to show
@@ -34,17 +22,12 @@ abstract public class AbstractTsohaServlet extends HttpServlet {
      * @throws ServletException
      * @throws IOException
      */
-    protected void showJSP(String page, String template, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void showJSP(String page, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        request.setAttribute("contentPage", page);
-        RequestDispatcher dispatcher = request.getRequestDispatcher(template);
+        RequestDispatcher dispatcher = request.getRequestDispatcher(page);
         dispatcher.forward(request, response);
     }
     
-    protected void setPagetitle(String title, HttpServletRequest request) {
-        request.setAttribute("pageTitle", title);
-    }
     protected void setError(String err, HttpServletRequest request) {
         request.setAttribute("pageError", err);
     }

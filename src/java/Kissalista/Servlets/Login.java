@@ -27,7 +27,6 @@ public class Login extends AbstractTsohaServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        setPagetitle("Log in", request);
         showJSP("login.jsp", request, response);
     }
 

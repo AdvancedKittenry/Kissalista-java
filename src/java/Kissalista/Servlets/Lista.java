@@ -25,10 +25,8 @@ public class Lista extends AbstractTsohaServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (redirectUnauthorizedUsers(request, response)) return;
-        
-        setPagetitle("Kissalista!", request);
-        showJSP("lista.jsp", request, response);
+        if (redirectUnauthorizedUsers(request, response)) return;    
+       showJSP("lista.jsp", request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
